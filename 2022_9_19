@@ -1,1 +1,35 @@
+// 谁是老二（结构体）.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+//
 
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+struct stu {
+	int year;
+	int month;
+	int day;
+};
+
+bool cmp(const stu &a, const stu &b)
+{
+	int birth1 = a.year * 10000 + a.month * 10000 + a.day;
+	int birth2 = b.year * 10000 + b.month * 10000 + b.day;
+	return birth1 > birth2;
+
+}
+int main()
+{
+
+	int t = 0;
+	cin >> t;
+	stu *arr = new stu[t];
+	int i = 0;
+	for (i = 0; i < t; i++)
+	{
+		cin >> arr[t].year >> arr[t].month >> arr[t].day;
+	}
+	sort(arr, arr + t, cmp);
+	cout << arr[1].year << "-" << arr[1].month << "-" << arr[1].day << endl;
+
+}
